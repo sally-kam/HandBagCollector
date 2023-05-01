@@ -14,13 +14,20 @@
 
     {% for handbag in handbags %}
     <div class="card">
+    <div class="row">
         <div class="card-content">
+        <div class="col s4">
+            <img class="fit" height="200" width="200" src={{handbag.image}}>
+        </div>
+        <div class="col s8">
         <span class="card-title">{{ handbag.name }}</span>
         <p>Price: ${{ handbag.price }}</p>
         <p>Description: {{ handbag.description }}</p>
         <p>Brand: {{ handbag.brand }}</p>
         <p>Color: {{ handbag.color }}</p>
         </div>
+        </div>
+    </div>
     </div>
     {% endfor %}
 
