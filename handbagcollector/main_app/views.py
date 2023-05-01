@@ -1,7 +1,7 @@
 from django.shortcuts import render
 handbags = [
   {'name': 'Rogue 25 in Colorblock with Tea Rose', 'price': 895, 'description': 'Glovetanned leather. One credit card slot. Inside snap and multifunction pockets. Zip closure, fabric and leather lining. Two open compartments.', 'brand': 'Coach', 'color': 'Brass/Bubblegum Multi', 'image':'https://i.imgur.com/WJkpu1S.png'},
-  {'name': 'LouLou Small Chain Bag in Quilted "Y" Leather', 'price': 3450, 'description': 'Bag with font flap and magnetic snap closure. Decorated with the cassandre and Y-quilted overstitching.', 'brand': 'Saint Laurent', 'color': 'Greyish Brown', 'image': 'https://i.imgur.com/2f6fnZH.png'},
+  {'name': 'LouLou Small Chain Bag in Quilted "Y" Leather', 'price': 2950, 'description': 'Bag with font flap and magnetic snap closure. Decorated with the cassandre and Y-quilted overstitching.', 'brand': 'Saint Laurent', 'color': 'Greyish Brown', 'image': 'https://i.imgur.com/2f6fnZH.png'},
 ]
 # Define the home view
 def home(request):
