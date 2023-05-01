@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My HandBags</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <h1>HandBag List</h1>
+
+    {% for handbag in handbags %}
+    <div class="card">
+        <div class="card-content">
+        <span class="card-title">{{ handbag.name }}</span>
+        <p>Price: ${{ handbag.price }}</p>
+        <p>Description: {{ handbag.description }}</p>
+        <p>Brand: {{ handbag.brand }}</p>
+        <p>Color: {{ handbag.color }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% endblock %}
+
+</body>
+</html>
