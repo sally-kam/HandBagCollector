@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My HandBags</title>
-</head>
-<body>
-    {% extends 'base.html' %}
-    {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
-    <h1>HandBag List</h1>
+<h1>HandBag Details</h1>
 
-    {% for handbag in handbags %}
-    <div class="card">
+<div class="card">
     <div class="row">
-        <a href="/handbags/{{ handbag.id }}">
         <div class="card-content">
             <div class="col s4">
             <img class="fit" height="200" width="200" src={{handbag.image}}>
@@ -28,12 +17,7 @@
         <p>Color: {{ handbag.color }}</p>
         </div>
         </div>
-        </a>
     </div>
     </div>
-    {% endfor %}
 
-    {% endblock %}
-
-</body>
-</html>
+{% endblock %}

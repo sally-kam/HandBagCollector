@@ -15,3 +15,7 @@ def handbags_index(request):
   return render(request, 'handbags/index.html', {
     'handbags': handbags
   })
+
+def handbags_detail(request, handbag_id):
+  handbag = Handbag.objects.get(id=handbag_id)
+  return render(request, 'handbags/detail.html', {'handbag': handbag})
