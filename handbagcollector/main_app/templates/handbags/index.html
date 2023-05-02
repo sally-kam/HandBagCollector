@@ -15,7 +15,7 @@
     {% for handbag in handbags %}
     <div class="card">
     <div class="row">
-        <a href="/handbags/{{ handbag.id }}">
+        <a href="{% url 'detail' handbag.id %}">
         <div class="card-content">
             <div class="col s4">
             <img class="fit" height="200" width="200" src={{handbag.image}}>
