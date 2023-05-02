@@ -8,3 +8,6 @@ class Handbag(models.Model):
     brand = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
     image = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
