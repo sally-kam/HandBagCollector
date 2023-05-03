@@ -7,4 +7,5 @@ urlpatterns = [
     # route for handbags index
     path('handbags/', views.handbags_index, name='index'),
     path('handbags/<int:handbag_id>/', views.handbags_detail, name='detail'),
+    path('handbags/create/', views.HandbagCreate.as_view(), name='handbags_create'),
 ]
