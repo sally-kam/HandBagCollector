@@ -25,7 +25,7 @@ class Handbag(models.Model):
     
 
 class Worn(models.Model):
-    date = models.DateField()
+    date = models.DateField('Date used:')
     occasion = models.CharField(max_length=100)
     time = models.CharField(
         max_length=1,
