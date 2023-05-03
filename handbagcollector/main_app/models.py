@@ -38,3 +38,6 @@ class Worn(models.Model):
     def __str__(self):
         # Nice method for obtaining the friendly value of a Field.choice
         return f"Worn on {self.date} in the {self.get_time_display()} for {self.occasion}"
+    
+    class Meta:
+        ordering = ['-date']
