@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Handbag
+from .forms import WornForm
 
 # Define the home view
 def home(request):
@@ -19,7 +20,11 @@ def handbags_index(request):
 
 def handbags_detail(request, handbag_id):
   handbag = Handbag.objects.get(id=handbag_id)
-  return render(request, 'handbags/detail.html', {'handbag': handbag})
+  worn_form = WornForm()
+  return render(request, 'handbags/detail.html', {
+    'handbag': handbag,
+    'worn_form': worn_form
+  })
 
 class HandbagCreate(CreateView):
   model = Handbag
