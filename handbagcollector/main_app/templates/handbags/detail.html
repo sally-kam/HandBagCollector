@@ -16,6 +16,10 @@
         <p>Brand: {{ handbag.brand }}</p>
         <p>Color: {{ handbag.color }}</p>
         </div>
+        <div class="card-action">
+            <a href="{% url 'handbags_update' handbag.id %}">Edit</a>
+            <a href="{% url 'handbags_delete' handbag.id %}">Delete</a>
+        </div>
         </div>
     </div>
     </div>
