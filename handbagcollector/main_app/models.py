@@ -26,9 +26,13 @@ class Handbag(models.Model):
 
 class Worn(models.Model):
     date = models.DateField()
-    occasion = models.CharField()
+    occasion = models.CharField(max_length=100)
     time = models.CharField(
         max_length=1,
         choices=TIMES,
         default=TIMES[0][0]
     )
+
+    def __str__(self):
+        # Nice method for obtaining the friendly value of a Field.choice
+        return f"Worn on {self.date} in the {self.get_time_display()} for {self.occasion}"
