@@ -1,6 +1,12 @@
 from django.db import models
 from django.urls import reverse
 
+TIMES = (
+    ('M', 'Morning'),
+    ('A', 'Afternoon'),
+    ('E', 'Evening')
+)
+
 # Create your models here.
 class Handbag(models.Model):
     name = models.CharField(max_length=100)
@@ -16,3 +22,13 @@ class Handbag(models.Model):
       # Add this method
     def get_absolute_url(self):
         return reverse('detail', kwargs={'cat_id': self.id})
+    
+
+class Worn(models.Model):
+    date = models.DateField()
+    occasion = models.CharField()
+    time = models.CharField(
+        max_length=1,
+        choices=TIMES,
+        default=TIMES[0][0]
+    )
