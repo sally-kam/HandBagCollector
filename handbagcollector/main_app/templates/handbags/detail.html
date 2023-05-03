@@ -23,6 +23,15 @@
         </div>
     </div>
     </div>
+    <div class="row">
+    <div class="col s6">
+        <form method="POST">
+            {% csrf_token %}
+            <!-- Render the inputs -->
+            {{ worn_form.as_p }}
+            <input type="submit" class="btn" value="Add when used">
+          </form>
+    </div>
     <div class="col s6">
         <table class="striped">
           <thead>
@@ -39,5 +48,6 @@
           </tbody>
         </table>
       </div>
+    </div>
 
 {% endblock %}
