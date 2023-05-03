@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Handbag
 from .forms import WornForm
@@ -37,3 +37,11 @@ class HandbagUpdate(UpdateView):
 class HandbagDelete(DeleteView):
   model = Handbag
   success_url = '/handbags'
+
+def add_when_worn(request, handbag_id):
+  form = WornForm(request.POST)
+  if form.is_valid():
+    new_worn = form.save(commit=False)
+    new_worn.handbag_id = handbag_id
+    new_worn.save()
+  return redirect('detail', handbag_id=handbag_id)
