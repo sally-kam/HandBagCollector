@@ -10,4 +10,5 @@ urlpatterns = [
     path('handbags/create/', views.HandbagCreate.as_view(), name='handbags_create'),
     path('handbags/<int:pk>/update/', views.HandbagUpdate.as_view(), name='handbags_update'),
     path('handbags/<int:pk>/delete/', views.HandbagDelete.as_view(), name='handbags_delete'),
+    path('handbags/<int:handbag_id>/add_when_worn/', views.add_when_worn, name='add_when_worn'),
 ]
