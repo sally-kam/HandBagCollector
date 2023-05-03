@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Handbag
 
 # Define the home view
@@ -24,3 +24,11 @@ def handbags_detail(request, handbag_id):
 class HandbagCreate(CreateView):
   model = Handbag
   fields = '__all__'
+
+class HandbagUpdate(UpdateView):
+  model = Handbag
+  fields = ['description', 'brand', 'color', 'image']
+
+class HandbagDelete(DeleteView):
+  model = Handbag
+  success_url = '/handbags'
