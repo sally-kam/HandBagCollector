@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Handbag
 
 # Define the home view
@@ -19,3 +20,7 @@ def handbags_index(request):
 def handbags_detail(request, handbag_id):
   handbag = Handbag.objects.get(id=handbag_id)
   return render(request, 'handbags/detail.html', {'handbag': handbag})
+
+class HandbagCreate(CreateView):
+  model = Handbag
+  fields = '__all__'
