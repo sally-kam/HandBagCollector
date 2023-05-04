@@ -8,6 +8,16 @@ TIMES = (
 )
 
 # Create your models here.
+class Item(models.Model):
+  name = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('items_detail', kwargs={'pk': self.id})
+
 class Handbag(models.Model):
     name = models.CharField(max_length=100)
     price = models.IntegerField()
@@ -15,6 +25,9 @@ class Handbag(models.Model):
     brand = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
     image = models.CharField(max_length=200)
+    # Add the M:M relationship
+    # related manager named toys
+    items = models.ManyToManyField(Item)
 
     def __str__(self):
         return self.name

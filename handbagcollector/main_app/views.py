@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Handbag
+from django.views.generic import ListView, DetailView
+from .models import Handbag, Item
 from .forms import WornForm
 
 # Define the home view
@@ -45,3 +46,21 @@ def add_when_worn(request, handbag_id):
     new_worn.handbag_id = handbag_id
     new_worn.save()
   return redirect('detail', handbag_id=handbag_id)
+
+class ItemList(ListView):
+  model = Item
+
+class ItemDetail(DetailView):
+  model = Item
+
+class ItemCreate(CreateView):
+  model = Item
+  fields = '__all__'
+
+class ItemUpdate(UpdateView):
+  model = Item
+  fields = ['name', 'color']
+
+class ItemDelete(DeleteView):
+  model = Item
+  success_url = '/items'
