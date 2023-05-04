@@ -21,10 +21,13 @@ def handbags_index(request):
 
 def handbags_detail(request, handbag_id):
   handbag = Handbag.objects.get(id=handbag_id)
+  id_list = handbag.items.all().values_list('id')
+  items_handbag_doesnt_have = Item.objects.exclude(id__in=id_list)
   worn_form = WornForm()
   return render(request, 'handbags/detail.html', {
     'handbag': handbag,
-    'worn_form': worn_form
+    'worn_form': worn_form,
+    'items': items_handbag_doesnt_have
   })
 
 class HandbagCreate(CreateView):
