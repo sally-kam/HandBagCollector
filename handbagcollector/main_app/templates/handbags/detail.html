@@ -24,7 +24,7 @@
     </div>
     <hr>
     </div>
-    <h3>When did you wore it?</h3>
+    <h3>When did you wear it?</h3>
     <div class="row">
     <div class="col s6">
         <form action="{% url 'add_when_worn' handbag.id %}" method="POST">
@@ -55,7 +55,7 @@
       <hr>
       <div class="row">
         <div class="col s6">
-          <h3>My Items</h3>
+          <h3>Items in the handbag</h3>
           {% if handbag.items.count %}
             {% for item in handbag.items.all %}
               <div class="card">
@@ -63,6 +63,12 @@
                   <span class="card-title">
                     A <span style="color: {{ item.color }}">{{ item.color }}</span> {{ item.name }}
                   </span>
+                </div>
+                <div class="card-action">
+                  <form action="{% url 'unassoc_item' handbag.id item.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Remove</button>
+                  </form>
                 </div>
               </div>
             {% endfor %}
@@ -82,7 +88,7 @@
                   </span>
                 </div>
                 <div class="card-action">
-                  <form action="" method="POST">
+                  <form action="{% url 'assoc_item' handbag.id item.id %}" method="POST">
                     {% csrf_token %}
                     <button type="submit" class="btn">Add</button>
                   </form>

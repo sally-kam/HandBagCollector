@@ -32,7 +32,7 @@ def handbags_detail(request, handbag_id):
 
 class HandbagCreate(CreateView):
   model = Handbag
-  fields = '__all__'
+  fields = ['name', 'price', 'description', 'brand', 'color', 'image']
 
 class HandbagUpdate(UpdateView):
   model = Handbag
@@ -67,3 +67,13 @@ class ItemUpdate(UpdateView):
 class ItemDelete(DeleteView):
   model = Item
   success_url = '/items'
+
+def assoc_item(request, handbag_id, item_id):
+  # Note that you can pass a toy's id instead of the whole toy object
+  Handbag.objects.get(id=handbag_id).items.add(item_id)
+  return redirect('detail', handbag_id=handbag_id)
+
+def unassoc_item(request, handbag_id, item_id):
+  # Note that you can pass a toy's id instead of the whole toy object
+  Handbag.objects.get(id=handbag_id).items.remove(item_id)
+  return redirect('detail', handbag_id=handbag_id)
