@@ -1,7 +1,14 @@
+
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  box-shadow: 10px 10px 5px lightpink;
+  background-image: url('https://media0.giphy.com/media/p6EDJOPtyd0DJSuDef/giphy.gif?cid=ecf05e47r1ruqsnakrqu8xc27qt40cl4f6tkq8b5cafo8cev&ep=v1_gifs_related&rid=giphy.gif&ct=g');
+  background-size: cover;
+  color:white;
+  font-family: 'Spicy Rice', cursive;
 }
 
 main {
@@ -11,6 +18,40 @@ main {
 footer.page-footer {
   padding-top: 0;
   text-align: right;
+  background-color: rgb(100, 40, 124);
 }
 
+.card {
+  box-shadow: 10px 10px 5px rgb(100, 40, 124);
+  color:black;
+  padding:5px;
+}
+.card:hover {
+  background-color: rgb(183, 140, 229);
+  color: white;
   
+}
+.card a:hover{
+  color:white;
+}
+.card-detail{
+  box-shadow: 10px 10px 5px rgb(100, 40, 124);
+  color:black;
+  padding:10px;
+  background-color: white;
+}
+form {
+  background-color: rgb(255, 255, 255);
+  border: 5px black;
+  box-shadow: 10px 10px 5px rgb(100, 40, 124);
+  padding-left:5px;
+  padding-right:5px;
+  padding-bottom:5px;
+  color: black;
+}
+label{
+  color:black;
+}
+nav{
+  background-color:rgb(100, 40, 124);
+}
